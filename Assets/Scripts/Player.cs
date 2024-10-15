@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         var destination = Vector3.MoveTowards(transform.position, worldPos, speed * Time.fixedDeltaTime);
-        rb.MovePosition(worldPos);
+        rb.MovePosition(destination);
     }
 
 }
