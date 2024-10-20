@@ -11,12 +11,14 @@ public class Player : MonoBehaviour
     private Vector3 worldPos;
 
     private Rigidbody2D rb;
+    private float halfScreenX;
 
     void Start()
     {
         cam = Camera.main;
         Cursor.visible = false;
         rb = GetComponent<Rigidbody2D>();
+        halfScreenX = cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, 0, 0)).x;
     }
 
     
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
     {
         worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
         worldPos.z = 0;
+        worldPos.x = Mathf.Clamp(worldPos.x, halfScreenX, Mathf.Infinity);
         //transform.position = worldPos;
     }
 
