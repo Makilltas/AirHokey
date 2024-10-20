@@ -9,6 +9,7 @@ public class Goal : MonoBehaviour
     public TextMeshProUGUI scoreText;
     private Rigidbody2D rb;
     private int score = 0;
+    private Vector3 startPos;
     
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class Goal : MonoBehaviour
         void OnTriggerExit2D(Collider2D col)
         {
             scoreText.text = (++score).ToString("0000");
-            transform.position = Vector2(0, 0, 0);
+            transform.position = startPos;
         }
     }
 }
